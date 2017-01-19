@@ -8,43 +8,40 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         System.out.println("Enter a number and I will tell you if it is in the Fibonacci Sequence.");
         int input = kb.nextInt();
+        System.out.println("Here is the sequence.");
+        fibo.printFibonacci(input);
 
 
     }
 
-    public class fibo{
-        int q = 1;
-        int w = 1;
-        int e;
+    public static class fibo{
 
-        int n = 0;
-        int arr [] = new int[100];
-/*
-        public  int test( int a, int b, int c){
-            if (e>1000){
-            return 1;
+        static int q = 0;
+        static int w = 1;
+        static int x = 0;
+        static int count = 0;
+        static void printFibonacci(int input){
+            x = q + w;
+            q = w;
+            w = x;
+            if (count == 0){
+                System.out.print(w + ", " + w + ", " + "2");
             }
-            else {
-                e = q + w;
-                q = w;
-                w = e;
-                e = arr[n];
-                n++;
-                test(a, b, c);
-                return 1;
+            if (count > 1) {
+                System.out.print(", " + w);
             }
-*/
-
-        int n1=0,n2=1,n3=0;
-        void printFibonacci(int count){
-            if(count>0){
-                n3 = n1 + n2;
-                n1 = n2;
-                n2 = n3;
-                System.out.print(" "+n3);
-                printFibonacci(count-1);
+            count++;
+            if (input == w){
+                System.out.println("\nCongratulations! Your number is in the Fibonacci Sequence");
+            }
+            else if (input != w) {
+                if(count < 20) {
+                    printFibonacci(input);
+                }
+                else {
+                    System.out.println("\nSorry, your number is not in the Fibonacci Sequence.");
+                }
             }
         }
-    }
     }
 }
